@@ -1,7 +1,7 @@
 <template lang="html">
   <div>
     <h2>Blogs !!!!! Required login</h2>
-    
+    <v-btn :to="{ name: 'blogs-new' }"> New Blog </v-btn>
     <v-card
       v-for="blog in blogs"
       :key="blog.id"
