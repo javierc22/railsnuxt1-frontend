@@ -6,6 +6,7 @@
       >
         Edit
       </v-btn>
+      <v-btn color="error" @click="handleDestroyClicked"> Destroy </v-btn>
       <h1>
         {{ blog.title }}
       </h1>
