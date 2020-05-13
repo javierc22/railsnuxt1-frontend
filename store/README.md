@@ -18,3 +18,10 @@ Cerrar la sesión de usuario iniciada
 ~~~console
 $nuxt.$auth.logout()
 ~~~
+
+Obtener token
+~~~console
+$nuxt.$auth.getToken('local')
+~~~
+
+* Axios: https://github.com/axios/axios, https://axios.nuxtjs.org/extend.html
