@@ -1,15 +1,10 @@
 <template lang="html">
   <div>
     <div v-if="blog">
-      <v-btn
-        :to="{ name: 'blogs-id-edit', params: { id: this.$route.params.id } }"
-      >
-        Edit
-      </v-btn>
-      <h1>
-        {{ blog.title }}
-      </h1>
-      <p>{{ blog.body }}</p>
+      Edit POST
+      <v-text-field v-model="blog.title" label="Title"></v-text-field>
+      <v-textarea v-model="blog.body" label="Body"></v-textarea>
+      <v-btn @click="handleSaveClicked"> Save </v-btn>
     </div>
   </div>
 </template>
@@ -29,11 +24,15 @@ export default {
     this.blog = response.data
   },
   methods: {
-    async handleDestroyClicked() {
-      // const response = await BlogsApi.destroy(this.$route.params.id)
-      const response = await BlogsApi.destroy(this.blog.id)
+    async handleSaveClicked() {
+      console.log('save clicked', this.blog)
+      const response = await BlogsApi.update(
+        this.blog.id,
+        this.blog.title,
+        this.blog.body
+      )
       console.log('RESPONSE', response)
-      this.$router.replace({ name: 'blogs' })
+      this.$router.replace({ name: 'blogs-id', params: { id: this.blog.id } })
     }
   }
 }
