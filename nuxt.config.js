@@ -17,6 +17,10 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+  server: {
+    port: 8000, // default: 3000
+    timing: false
+  },
   /*
   ** Customize the progress-bar color
   */
@@ -43,7 +47,24 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    '@nuxtjs/auth'
   ],
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: 'http://localhost:3000/api/v1/user/sign_in', method: 'post', propertyName: 'user.auth_jwt' },
+          logout: { url: 'http://localhost:3000/api/v1/user/sign_out', method: 'delete' },
+          user: { url: 'http://localhost:3000/api/v1/user/me', method: 'get', propertyName: 'user' }
+        },
+        tokenName: 'auth-token'
+        // tokenRequired: true,
+        // tokenType: 'bearer',
+        // globalToken: true,
+        // autoFetchUser: true
+      }
+    }
+  },
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
