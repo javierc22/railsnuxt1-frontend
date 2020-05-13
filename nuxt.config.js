@@ -50,6 +50,9 @@ module.exports = {
     '@nuxtjs/auth'
   ],
   auth: {
+    redirect: {
+      login: '/login'
+    },
     strategies: {
       local: {
         endpoints: {
