@@ -25,7 +25,7 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 
 Comando útiles al usar **nuxtjs/auth**
 
-<img src="./readme_img/img01.png" height="100">
+<img src="./readme_img/img01.png" height="350">
 
 Comprobar si el *login* está activo
 ~~~console
